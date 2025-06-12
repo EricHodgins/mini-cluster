@@ -7,9 +7,9 @@ spec:
     storage: 20Gi
   accessModes:
     - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Retain
   hostPath:
-    path: /mnt/external-hdd/mysql-data
+    path: '/mnt/external-mysql/mysql-data'
+  persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -21,4 +21,3 @@ spec:
   resources:
     requests:
       storage: 20Gi
-  volumeName: mysql-pv
