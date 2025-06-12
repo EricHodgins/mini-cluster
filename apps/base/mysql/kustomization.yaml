@@ -5,4 +5,4 @@ resources:
   - storage.yaml
   - deployment.yaml
   - service.yaml
-  # - phpmyadmin-deployment.yaml
+  - phpmyadmin-deployment.yaml
