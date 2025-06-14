@@ -3,3 +3,4 @@ kind: Kustomization
 namespace: mysql
 resources:
   - ../../base/mysql
+  - mysql-container-env-secret.yaml
