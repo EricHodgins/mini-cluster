@@ -25,3 +25,7 @@ TestResults.xml
 
 # Secrets with SOPS
 *.agekey
+
+# TLS just in case ignore it
+*.crt
+*.key

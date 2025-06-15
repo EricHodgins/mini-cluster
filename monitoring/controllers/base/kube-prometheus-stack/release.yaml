@@ -48,7 +48,7 @@ spec:
         ## TLS configuration for Alertmanager Ingress
         ## Secret must be manually created in the namespace
         ##
-        tls: []
-        # - secretName: alertmanager-general-tls
-        #   hosts:
-        #   - alertmanager.example.com
+        tls:
+          - secretName: grafana-tls-secret
+            hosts:
+              - grafana.onemanwolfpac.net
