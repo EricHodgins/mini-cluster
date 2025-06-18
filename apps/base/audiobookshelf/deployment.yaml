@@ -14,9 +14,18 @@ spec:
     spec:
       containers:
         - name: audiobookshelf
-          image: ghcr.io/advplyr/audiobookshelf:latest
+          image: ghcr.io/advplyr/audiobookshelf:2.17.2
+
+          envFrom:
+            - configMapRef:
+                name: audiobookshelf-configmap
           ports:
-            - containerPort: 80
+            - containerPort: 3005
+              protocol: TCP
+
+    restartPolicy:
+      Always
+
       #     env:
       #       - name: PUID
       #         valueFrom:
