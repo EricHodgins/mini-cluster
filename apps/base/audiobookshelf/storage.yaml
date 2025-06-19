@@ -1,0 +1,77 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: audiobookshelf-config-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: '/mnt/external-hdd/audiobookshelf/config'
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: audiobookshelf-config-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: '' # ✅ disables dynamic provisioning
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: audiobookshelf-config-pv
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: audiobookshelf-metadata-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: '/mnt/external-hdd/audiobookshelf/metadata'
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: audiobookshelf-metadata-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: '' # ✅ disables dynamic provisioning
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: audiobookshelf-metadata-pv
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: audiobookshelf-audiobooks-pv
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: '/mnt/external-hdd/audiobookshelf/audiobooks'
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: audiobookshelf-audiobooks-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: '' # ✅ disables dynamic provisioning
+  resources:
+    requests:
+      storage: 10Gi
+  volumeName: audiobookshelf-audiobooks-pv

@@ -23,22 +23,23 @@ spec:
             - containerPort: 3005
               protocol: TCP
 
-    restartPolicy:
-      Always
+          volumeMounts:
+            - name: audiobookshelf-config-volume
+              mountPath: /config
+            - name: audiobookshelf-metadata-volume
+              mountPath: /metadata
+            - name: audiobookshelf-audiobooks-volume
+              mountPath: /audiobooks
 
-      #     env:
-      #       - name: PUID
-      #         valueFrom:
-      #           fieldRef:
-      #             fieldPath: metadata.annotations['puid']
-      #       - name: PGID
-      #         valueFrom:
-      #           fieldRef:
-      #             fieldPath: metadata.annotations['pgid']
-      #     volumeMounts:
-      #       - name: config-volume
-      #         mountPath: /config
-      # volumes:
-      #   - name: config-volume
-      #     persistentVolumeClaim:
-      #       claimName: audiobookshelf-config-pvc
+      restartPolicy: Always
+
+      volumes:
+        - name: audiobookshelf-config-volume
+          persistentVolumeClaim:
+            claimName: audiobookshelf-config-pvc
+        - name: audiobookshelf-metadata-volume
+          persistentVolumeClaim:
+            claimName: audiobookshelf-metadata-pvc
+        - name: audiobookshelf-audiobooks-volume
+          persistentVolumeClaim:
+            claimName: audiobookshelf-audiobooks-pvc
