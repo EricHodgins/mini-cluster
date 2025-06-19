@@ -4,3 +4,5 @@ namespace: mysql
 resources:
   - ../../base/mysql
   - mysql-container-env-secret.yaml
+  - cloudflare-secret.yaml
+  - cloudflare.yaml
