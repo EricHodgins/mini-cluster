@@ -19,7 +19,7 @@ spec:
 
       containers:
         - name: game
-          image: erichodgins/third-person-camera:1.0.3
+          image: erichodgins/third-person-camera:1.0.4
           ports:
             - containerPort: 80
 
