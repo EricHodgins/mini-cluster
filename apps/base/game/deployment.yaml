@@ -23,5 +23,12 @@ spec:
           ports:
             - containerPort: 80
 
-          # securityContext:
-          #   allowPrivilegeEscalation: false
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            runAsNonRoot: true
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+
+    securityContext:
+      fsGroup: 1000
