@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: game
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: game
+  template:
+    metadata:
+      labels:
+        app: game
+    spec:
+      # securityContext:
+      #   fsGroup: 33 # www-data group ID
+      #   runAsUser: 33 # www-data user ID
+      #   runAsGroup: 33 # www-data group ID
+
+      containers:
+        - name: game
+          image: erichodgins/third-person-camera:latest
+          ports:
+            - containerPort: 80
+
+          # securityContext:
+          #   allowPrivilegeEscalation: false
