@@ -12,16 +12,19 @@ spec:
       labels:
         app: game
     spec:
-      # securityContext:
-      #   fsGroup: 101 # nobody group ID
-      #   runAsUser: 101 # nobody user ID
-      #   runAsGroup: 101 # nobody group ID
+      securityContext:
+        fsGroup: 1000 # nobody group ID
+        runAsUser: 1000 # nobody user ID
+        runAsGroup: 1000 # nobody group ID
 
       containers:
         - name: game
           image: erichodgins/third-person-camera:1.0.4
           ports:
             - containerPort: 80
+
+          securityContext:
+            allowPrivilegeEscalation: false
 
     #       securityContext:
     #         runAsUser: 1000
