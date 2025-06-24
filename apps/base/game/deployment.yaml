@@ -12,10 +12,10 @@ spec:
       labels:
         app: game
     spec:
-      securityContext:
-        fsGroup: 101 # nobody group ID
-        runAsUser: 101 # nobody user ID
-        runAsGroup: 101 # nobody group ID
+      # securityContext:
+      #   fsGroup: 101 # nobody group ID
+      #   runAsUser: 101 # nobody user ID
+      #   runAsGroup: 101 # nobody group ID
 
       containers:
         - name: game
@@ -23,5 +23,5 @@ spec:
           ports:
             - containerPort: 80
 
-          securityContext:
-            allowPrivilegeEscalation: false
+          # securityContext:
+          #   allowPrivilegeEscalation: false
